@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // const target = {
+    //     foo: 'bar'
+    // };
+    // const handler = {
+    //     // 捕获器在处理程序对象中以方法名为键
+    //     get() {
+    //         return 'handler override';
+    //     }
+    // };
+    // const proxy = new Proxy(target, handler);
+    // console.log(target.foo); // bar
+    // console.log(proxy.foo); // handler override
+    // console.log(target['foo']); // bar
+    // console.log(proxy['foo']); // handler override
+    // console.log(Object.create(target)['foo']); // bar
+    // console.log(Object.create(proxy)['foo']); // handler override
+
+
+
+/*    const target = {
+        foo: 'bar'
+    };
+    const handler = {
+        get(trapTarget, property, receiver) {
+            return trapTarget[property];
+        }
+    };
+    const proxy = new Proxy(target, handler);
+    console.log(proxy.foo); // bar
+    console.log(target.foo); // bar*/
+
+
+
+
+
+
+    const target = {
+        foo: 'bar'
+    };
+    const handler = {
+        get() {
+            return Reflect.get(...arguments);
+        }
+    };
+    const proxy = new Proxy(target, handler);
+    console.log(proxy.foo); // bar
+    console.log(target.foo); // bar
+</script>
+</body>
+</html>
