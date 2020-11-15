@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var letterCombinations = function (dights) {
+        var obj = {
+            2: 'abc',
+            3: 'def',
+            4: 'ghi',
+            5: 'jkl',
+            6: 'mno',
+            7: 'pqrs',
+            8: 'tuv',
+            9: 'wxyz'
+        }
+        var arr = [];
+
+        function dfs (index, dights, result, arr) {
+            if (index === dights.length) {
+                if (result) {
+                    arr.push(result)
+                    return false
+                }
+                for (var i = 0; i < obj[dights[index]].length; i++) {
+                    dfs(index + 1, dights, result + obj[dights[index]][i], arr)
+                }
+            }
+            dfs(0, dights, '', arr)
+            return arr
+        }
+    }
+    console.log(letterCombinations("23"))
+</script>
+</body>
+</html>
