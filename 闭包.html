@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*    function fn1() {
+            var i = 0
+
+            return function fn2() {
+                i++
+                console.log(i)
+            }
+
+        }
+        var fn = fn1() //fn表示fn1中的fn2
+        fn();
+        fn();*/
+    var Utils = (function () {
+        var list =[]
+        return {
+            add:function (item) {
+                if (list.indexOf(item)>-1)return;
+                list.push(item)
+            },
+            remove:function (item) {
+                if (list.indexOf(item)<0)return; //找到了
+                list.splice(list.indexOf(item),1);
+            },
+            get length(){
+                return list.length
+            },
+            get showData(){
+                return list.join()
+            },
+            dispose:function () {
+                list = null
+            }
+        }
+    })()
+    Utils.add(1);
+    Utils.add(1);
+    Utils.add(2);
+    Utils.add(4);
+    Utils.remove(2);
+    console.log(Utils)
+    Utils.dispose()
+    Utils=null
+
+    /*
+    * 使用闭包时容易造成闭包泄露
+    * */
+    function fn1() {
+        var i=1
+            return function (num1) {
+                i++
+                return num1+i
+            }
+    }
+    var fn =fn1()
+    console.log(fn(10))
+    console.log(fn(10))
+    console.log(fn(15))
+</script>
+</body>
+</html>
