@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Array.prototype.myUnique = function () {
+      var obj = {}
+      for(var i = 0;i<this.length;i++){
+          var cur = this[i]
+          if (obj[cur]==cur) {
+            this[i]=this[this.length-1]
+            this.length--
+            i--
+            continue
+          }
+          obj[cur]=[cur]
+      }
+      obj=null
+      return this
+    }
+    var arr = [12,23,23,12,23,12,23,13,12,13]
+    arr.myUnique().sort(function(a,b){return a-b})
+/*     arr.sort(function(a,b){
+      return a-b
+    }).reverse().pop() */
+console.log(arr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>批量设置原型上</title>
+</head>
+<body>
+  <script>
+/*     function Fn(){
+      this.x=100
+    }
+    var pro = Fn.prototype 
+    pro.getX = function(){
+      console.log(this.x);
+    }
+    var f1 = new Fn */
+    //重构原型对象的方式
+    function Fn(){
+      this.x=100
+    }
+    Fn.prototype={
+      constructor:Fn,
+      a:function(){
+
+      },
+      b:function(){
+
+      },
+      c:function(){
+        
+      },
+      d:function(){
+        
+      }
+    }
+    var f1= new Fn
+    console.log(f1.constructor);
+/*     Array.prototype.unique=function(){
+
+    } */
+/*     Array.prototype={
+      constructor:Array,
+      unique : function(){
+
+      }
+    }
+    console.dir(Array.prototype) */
+    Array.prototype.sort=function(){
+      console.log("Ok")
+    }
+    var ary = [1,2,3,5,4,7,]
+    ary.sort();
+    console.log(ary)
+
+  </script>
+</body>
+</html>
