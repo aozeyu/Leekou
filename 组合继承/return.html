@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function sum(a, b) {
+        return a + b
+    }
+
+    var s = sum(10, 20)
+    console.log(s)
+
+    function fn1(a, b) {
+        var sum = a + b
+        console.log("sum:" + sum)
+    }
+
+    console.log(fn1(3,5))
+    function getRandomColor() {
+        var color="#";
+        for(var i=0;i<3;i++){
+            var str=parseInt(Math.random()*256);
+            if(str<16){
+                str="0"+str.toString(16);
+            }else {
+                str=str.toString(16);
+            }
+            color+=str;
+        }
+        return color;
+    }
+    function createDiv(w,h,bg) {
+        var style = "width:"+w +"px;height:"+h+"px;background-color:"+bg;
+        var div="<div style="+style+"></div>"
+        return div
+    }
+    for(var i =0;i<10;i++){
+        document.write(createDiv(Math.random()*200,Math.random()*200,getRandomColor()))
+    }
+</script>
+</body>
+</html>
