@@ -1,8 +1,18 @@
-var http = require('http');
-var querystring = require('querystring');
+function require(http1) {
+    return undefined;
+}
+
+const http = require('http');
+const querystring = require('querystring');
+http.createServer = function (param) {
+
+}
 // ኎ད服务器的request事件
 http.createServer(function (req, res) {
-    var postData = '';
+    let postData = '';
+    req.setEncoding = function (utf8) {
+
+    }
     req.setEncoding('utf8');
     // ኎ད请求的data事件
     req.on('data', function (trunk) {
